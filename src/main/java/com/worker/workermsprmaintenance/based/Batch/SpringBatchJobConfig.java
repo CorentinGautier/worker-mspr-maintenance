@@ -22,7 +22,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @Configuration
 public class SpringBatchJobConfig {
 
-    /* informatino from the XML file. */
+    /* information from the XML file. */
     @Configuration
     public class SpringBatchExampleJobConfig {
 
@@ -32,9 +32,9 @@ public class SpringBatchJobConfig {
             studentMarshaller.setClassesToBeBound(ArrondissementDTO.class);
 
             return new StaxEventItemReaderBuilder<ArrondissementDTO>()
-                    .name("studentReader")
-                    .resource(new ClassPathResource("data/students.xml"))
-                    .addFragmentRootElements("student")
+                    .name("ArrondissementReader")
+                    .resource(new ClassPathResource("D:\\Projet EPSI\\mspr-maintenance\\TPRE716-XML\\BASED\\07-02-2021.xml"))
+                    .addFragmentRootElements("Arrdit Id")
                     .unmarshaller(studentMarshaller)
                     .build();
         }
