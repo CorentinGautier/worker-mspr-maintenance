@@ -1,13 +1,15 @@
-package com.worker.workermsprmaintenance.based;
+package com.worker.workermsprmaintenance.based.DTO;
 
-public class arrondissementDTO {
+public class ArrondissementDTO {
 
     private int id;
 
-    public arrondissementDTO(int id) {
+    public ArrondissementDTO(int id) {
         this.id = id;
     }
 
+    public ArrondissementDTO() {
+    }
     public int getId() {
         return id;
     }
