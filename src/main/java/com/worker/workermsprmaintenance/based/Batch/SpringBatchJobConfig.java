@@ -24,7 +24,7 @@ public class SpringBatchJobConfig {
 
     /* information from the XML file. */
     @Configuration
-    public class SpringBatchJobConfig {
+    public class SpringBatchExampleJobConfig {
 
         @Bean
         public ItemReader<ArrondissementDTO> itemReader() {
@@ -39,12 +39,11 @@ public class SpringBatchJobConfig {
                     .build();
         }
 
-        /**
         @Bean
         public ItemWriter<ArrondissementDTO> itemWriter() {
             return new LoggingItemWriter();
         }
-         */
+
         /**
          * Creates a bean that represents the only step of our batch job.
          * @param reader
@@ -52,36 +51,30 @@ public class SpringBatchJobConfig {
          * @param stepBuilderFactory
          * @return
          */
-        /**
         @Bean
-        public Step JobStep(ItemReader<ArrondissementDTO> reader,
-                                   ItemWriter<ArrondissementDTO> writer,
+        public Step exampleJobStep(ItemReader<ArrondissementDTO> reader, ItemWriter<ArrondissementDTO> writer,
                                    StepBuilderFactory stepBuilderFactory) {
-            return stepBuilderFactory.get("eJobStep")
+            return stepBuilderFactory.get("exampleJobStep")
                     .<ArrondissementDTO, ArrondissementDTO>chunk(1)
                     .reader(reader)
                     .writer(writer)
                     .build();
         }
-          */
 
         /**
-         * Creates a bean that represents our  batch job.
-         * @param JobStep
+         * Creates a bean that represents our example batch job.
+         * @param exampleJobStep
          * @param jobBuilderFactory
          * @return
          */
-/**
+
         @Bean
-        public Job Job(Step JobStep,
-                              JobBuilderFactory jobBuilderFactory) {
-            return jobBuilderFactory.get("Job")
+        public Job exampleJob(Step exampleJobStep,JobBuilderFactory jobBuilderFactory) {
+            return jobBuilderFactory.get("exampleJob")
                     .incrementer(new RunIdIncrementer())
-                    .flow(JobStep)
+                    .flow(exampleJobStep)
                     .end()
                     .build();
         }
-    }
- */
     }
 }
