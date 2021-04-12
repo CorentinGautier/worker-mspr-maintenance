@@ -1,4 +1,5 @@
 package com.worker.workermsprmaintenance.based.Batch;
+import com.worker.workermsprmaintenance.based.DTO.ArrondissementDTO;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +27,11 @@ public class SpringBatchJobConfig {
     public class SpringBatchExampleJobConfig {
 
         @Bean
-        public ItemReader<StudentDTO> itemReader() {
+        public ItemReader<ArrondissementDTO> itemReader() {
             Jaxb2Marshaller studentMarshaller = new Jaxb2Marshaller();
-            studentMarshaller.setClassesToBeBound(StudentDTO.class);
+            studentMarshaller.setClassesToBeBound(ArrondissementDTO.class);
 
-            return new StaxEventItemReaderBuilder<StudentDTO>()
+            return new StaxEventItemReaderBuilder<ArrondissementDTO>()
                     .name("studentReader")
                     .resource(new ClassPathResource("data/students.xml"))
                     .addFragmentRootElements("student")
@@ -39,7 +40,7 @@ public class SpringBatchJobConfig {
         }
 
         @Bean
-        public ItemWriter<StudentDTO> itemWriter() {
+        public ItemWriter<ArrondissementDTO> itemWriter() {
             return new LoggingItemWriter();
         }
 
@@ -51,11 +52,11 @@ public class SpringBatchJobConfig {
          * @return
          */
         @Bean
-        public Step exampleJobStep(ItemReader<StudentDTO> reader,
-                                   ItemWriter<StudentDTO> writer,
+        public Step exampleJobStep(ItemReader<ArrondissementDTO> reader,
+                                   ItemWriter<ArrondissementDTO> writer,
                                    StepBuilderFactory stepBuilderFactory) {
             return stepBuilderFactory.get("exampleJobStep")
-                    .<StudentDTO, StudentDTO>chunk(1)
+                    .<ArrondissementDTO, ArrondissementDTO>chunk(1)
                     .reader(reader)
                     .writer(writer)
                     .build();

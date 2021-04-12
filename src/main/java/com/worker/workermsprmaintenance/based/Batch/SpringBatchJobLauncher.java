@@ -27,13 +27,13 @@ public class SpringBatchJobLauncher {
 
 
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SpringBatchExampleJobLauncher.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringBatchJobLauncher.class);
 
     private final Job job;
     private final JobLauncher jobLauncher;
 
     @Autowired
-    public SpringBatchExampleJobLauncher(Job job, JobLauncher jobLauncher) {
+    public SpringBatchJobLauncher(Job job, JobLauncher jobLauncher) {
         this.job = job;
         this.jobLauncher = jobLauncher;
     }

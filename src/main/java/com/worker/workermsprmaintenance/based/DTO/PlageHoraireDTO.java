@@ -1,7 +1,5 @@
 package com.worker.workermsprmaintenance.based.DTO;
 
-import sun.jvm.hotspot.ui.EditableAtEndDocument;
-
 import java.util.Date;
 
 public class PlageHoraireDTO {
