@@ -39,11 +39,12 @@ public class SpringBatchJobConfig {
                     .build();
         }
 
+        /**
         @Bean
         public ItemWriter<ArrondissementDTO> itemWriter() {
             return new LoggingItemWriter();
         }
-
+         */
         /**
          * Creates a bean that represents the only step of our batch job.
          * @param reader
@@ -51,6 +52,7 @@ public class SpringBatchJobConfig {
          * @param stepBuilderFactory
          * @return
          */
+        /**
         @Bean
         public Step exampleJobStep(ItemReader<ArrondissementDTO> reader,
                                    ItemWriter<ArrondissementDTO> writer,
@@ -61,6 +63,7 @@ public class SpringBatchJobConfig {
                     .writer(writer)
                     .build();
         }
+          */
 
         /**
          * Creates a bean that represents our example batch job.
@@ -68,6 +71,7 @@ public class SpringBatchJobConfig {
          * @param jobBuilderFactory
          * @return
          */
+/**
         @Bean
         public Job exampleJob(Step exampleJobStep,
                               JobBuilderFactory jobBuilderFactory) {
@@ -78,5 +82,6 @@ public class SpringBatchJobConfig {
                     .build();
         }
     }
+ */
 
 }
