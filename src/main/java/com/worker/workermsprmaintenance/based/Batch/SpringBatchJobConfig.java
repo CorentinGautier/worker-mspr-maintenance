@@ -24,7 +24,7 @@ public class SpringBatchJobConfig {
 
     /* information from the XML file. */
     @Configuration
-    public class SpringBatchExampleJobConfig {
+    public class SpringBatchJobConfig {
 
         @Bean
         public ItemReader<ArrondissementDTO> itemReader() {
@@ -54,10 +54,10 @@ public class SpringBatchJobConfig {
          */
         /**
         @Bean
-        public Step exampleJobStep(ItemReader<ArrondissementDTO> reader,
+        public Step JobStep(ItemReader<ArrondissementDTO> reader,
                                    ItemWriter<ArrondissementDTO> writer,
                                    StepBuilderFactory stepBuilderFactory) {
-            return stepBuilderFactory.get("exampleJobStep")
+            return stepBuilderFactory.get("eJobStep")
                     .<ArrondissementDTO, ArrondissementDTO>chunk(1)
                     .reader(reader)
                     .writer(writer)
@@ -66,18 +66,18 @@ public class SpringBatchJobConfig {
           */
 
         /**
-         * Creates a bean that represents our example batch job.
-         * @param exampleJobStep
+         * Creates a bean that represents our  batch job.
+         * @param JobStep
          * @param jobBuilderFactory
          * @return
          */
 /**
         @Bean
-        public Job exampleJob(Step exampleJobStep,
+        public Job Job(Step JobStep,
                               JobBuilderFactory jobBuilderFactory) {
-            return jobBuilderFactory.get("exampleJob")
+            return jobBuilderFactory.get("Job")
                     .incrementer(new RunIdIncrementer())
-                    .flow(exampleJobStep)
+                    .flow(JobStep)
                     .end()
                     .build();
         }
