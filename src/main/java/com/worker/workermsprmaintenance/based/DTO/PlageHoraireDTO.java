@@ -30,6 +30,11 @@ public class PlageHoraireDTO {
         this.debut = debut;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "PlageHoraireDTO{" +
+                "fin=" + fin +
+                ", debut=" + debut +
+                '}';
+    }
 }

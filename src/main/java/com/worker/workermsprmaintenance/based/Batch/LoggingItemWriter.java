@@ -13,6 +13,8 @@ public class LoggingItemWriter implements ItemWriter<ArrondissementDTO> {
 
     @Override
     public void write(List<? extends ArrondissementDTO> list) throws Exception {
+     //   LOGGER.info("Writing Arrondissement: {}", list);
         LOGGER.info("Writing Arrondissement: {}");
+
     }
 }

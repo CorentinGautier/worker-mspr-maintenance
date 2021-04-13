@@ -1,5 +1,8 @@
 package com.worker.workermsprmaintenance.based.DTO;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="arrondissement")
 public class ArrondissementDTO {
 
     private int id;
@@ -18,5 +21,10 @@ public class ArrondissementDTO {
         this.id = id;
     }
 
-
+    @Override
+    public String toString() {
+        return "ArrondissementDTO{" +
+                "id=" + id +
+                '}';
+    }
 }

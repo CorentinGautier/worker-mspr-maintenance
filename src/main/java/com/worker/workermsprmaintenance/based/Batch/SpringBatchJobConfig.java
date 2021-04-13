@@ -11,20 +11,16 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
-import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.xml.builder.StaxEventItemReaderBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-@Configuration
-public class SpringBatchJobConfig {
-
-    /* information from the XML file. */
+/**
+ * This configuration class configures the Spring Batch job that
+ * is used to demonstrate that our item reader reads the correct
+ * information from the XML file.
+ */
     @Configuration
-    public class SpringBatchExampleJobConfig {
+    public class SpringBatchJobConfig {
 
         @Bean
         public ItemReader<ArrondissementDTO> itemReader() {
@@ -77,4 +73,3 @@ public class SpringBatchJobConfig {
                     .build();
         }
     }
-}
